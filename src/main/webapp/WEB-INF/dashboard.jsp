@@ -33,7 +33,7 @@
 					class="text-warning">PROJECT MANAGER</strong>
 				</a>
 				<div class="col-4 row align-items-center">
-					<p class="col text-white m-2">${ loggedInUser.userName }</p>
+					<p class="col text-white m-2">${ loggedInUser.firstName }</p>
 					<button class="col btn btn-info btn-sm round m-2" onclick="window.location.href='/dashboard';">Home</button>
 					<button class="col btn btn-danger btn-sm round" onclick="window.location.href='/logout';">Log-Out</button>
 				</div>
@@ -45,7 +45,7 @@
 	<main role="main">
 		<div class="container mt-4">
 			<div class="row">
-				<h1>Welcome to Dashboard ${ loggedInUser.userName }</h1>
+				<h1>Welcome to Dashboard ${ loggedInUser.firstName } ${ loggedInUser.lastName }</h1>
 			</div>
 		</div>
 	</main>

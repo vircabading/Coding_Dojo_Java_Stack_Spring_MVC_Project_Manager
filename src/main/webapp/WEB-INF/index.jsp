@@ -32,7 +32,8 @@
 				<a href="/" class="navbar-brand d-flex align-items-center"> <strong
 					class="text-warning">LOGIN AND REGISTRATION</strong>
 				</a>
-				<button class="btn btn-info btn-sm round" onclick="window.location.href='/';">Index</button>
+				<button class="btn btn-info btn-sm round"
+					onclick="window.location.href='/';">Index</button>
 			</div>
 		</div>
 	</header>
@@ -44,13 +45,22 @@
 				<!-- //// REGISTRATION FORM //////////////////////// -->
 				<form:form class="col bg-info m-2 p-2 round" action="/"
 					method="post" modelAttribute="newUser">
-					<input type="hidden" name="_method" value="put">	<!-- ### Converts method of form to PUT ### -->
-					<h2><strong>Register:</strong></h2>
+					<input type="hidden" name="_method" value="put">
+					<!-- ### Converts method of form to PUT ### -->
+					<h2>
+						<strong>Register:</strong>
+					</h2>
 					<div class="form-group">
-						<label>User Name:</label> <strong> <form:errors
-								path="userName" class="text-danger alert mb-3" />
+						<label>First Name:</label> <strong> <form:errors
+								path="firstName" class="text-danger alert mb-3" />
 						</strong>
-						<form:input path="userName" class="form-control mb-3" />
+						<form:input path="firstName" class="form-control mb-3" />
+					</div>
+					<div class="form-group">
+						<label>Last Name:</label> <strong> <form:errors
+								path="lastName" class="text-danger alert mb-3" />
+						</strong>
+						<form:input path="lastName" class="form-control mb-3" />
 					</div>
 					<div class="form-group">
 						<label>Email:</label> <strong> <form:errors path="email"
@@ -70,12 +80,15 @@
 						</strong>
 						<form:password path="confirm" class="form-control mb-3" />
 					</div>
-					<input type="submit" value="Register" class="btn btn-primary btn-sm round mb-3" />
+					<input type="submit" value="Register"
+						class="btn btn-primary btn-sm round mb-3" />
 				</form:form>
 				<!-- //// LOGIN FORM //////////////////////// -->
 				<form:form class="col bg-info m-2 round p-2" action="/"
 					method="post" modelAttribute="newLogin">
-					<h2><strong>Log-In</strong></h2>
+					<h2>
+						<strong>Log-In</strong>
+					</h2>
 					<div class="form-group">
 						<label>Email:</label> <strong> <form:errors path="email"
 								class="text-danger alert mb-3" />
@@ -88,7 +101,8 @@
 						</strong>
 						<form:password path="password" class="form-control mb-3" />
 					</div>
-					<input type="submit" value="Login" class="btn btn-success btn-sm round mb-3" />
+					<input type="submit" value="Login"
+						class="btn btn-success btn-sm round mb-3" />
 				</form:form>
 			</div>
 		</div>

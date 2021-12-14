@@ -1,3 +1,5 @@
+package com.vcabading.projectmanager.controllers;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -9,6 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+
+import com.vcabading.projectmanager.models.LoginUser;
+import com.vcabading.projectmanager.models.User;
+import com.vcabading.projectmanager.services.UserService;
 
 ////////////////////////////////////////////////////////////////////
 //	HOME CONTROLLER
