@@ -31,9 +31,6 @@ public class UserService {
         if(userRepo.findByEmail(newUser.getEmail()).isPresent()) {		// Check if E-mail is already in database
             result.rejectValue("email", "Unique", "This email is already in use!");
         }
-        if(userRepo.findByUserName(newUser.getUserName()).isPresent()) {
-            result.rejectValue("userName", "Unique", "This Name is already in use!");
-        }
         if(!newUser.getPassword().equals(newUser.getConfirm())) {		// Check to make sure password matches confirm password
             result.rejectValue("confirm", "Matches", "The Confirm Password must match Password!");
         }
