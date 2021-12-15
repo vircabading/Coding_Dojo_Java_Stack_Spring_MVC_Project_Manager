@@ -1,12 +1,15 @@
 package com.vcabading.projectmanager.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -60,7 +63,10 @@ public class User {
     @NotEmpty(message="Confirm Password is required!")
     @Size(min=8, max=128, message="Confirm Password must be between 8 and 128 characters")
     private String confirm;
-    
+
+    //	---- ONE:TO:MANY RELATIONSHIP --------------------------    
+    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    private List<Project> projectsList;
 
 	@Column(updatable=false)		// this will not allow createdAt to be updated after creation
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -156,6 +162,14 @@ public class User {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public List<Project> getProjectsList() {
+		return projectsList;
+	}
+
+	public void setProjectsList(List<Project> projectsList) {
+		this.projectsList = projectsList;
 	}
     
     
