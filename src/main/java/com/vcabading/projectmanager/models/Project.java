@@ -50,8 +50,8 @@ public class Project {
 	
 	//	---- MANY:TO:ONE RELATIONSHIP -------------------------
 	@ManyToOne( fetch = FetchType.LAZY )
-	@JoinColumn( name="owner_id" )
-	private User owner;
+	@JoinColumn( name="leader_id" )
+	private User leader;
 	
 	@Column(updatable=false)		// this will not allow createdAt to be updated after creation
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -132,12 +132,14 @@ public class Project {
 		this.updatedAt = updatedAt;
 	}
 
-	public User getOwner() {
-		return owner;
+	public User getLeader() {
+		return leader;
 	}
 
-	public void setOwner(User owner) {
-		this.owner = owner;
+	public void setLeader(User leader) {
+		this.leader = leader;
 	}
+
+
 
 }

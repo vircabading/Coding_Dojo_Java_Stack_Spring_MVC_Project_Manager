@@ -65,7 +65,7 @@ public class User {
     private String confirm;
 
     //	---- ONE:TO:MANY RELATIONSHIP --------------------------    
-    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="leader", fetch = FetchType.LAZY)
     private List<Project> projectsList;
 
 	@Column(updatable=false)		// this will not allow createdAt to be updated after creation
