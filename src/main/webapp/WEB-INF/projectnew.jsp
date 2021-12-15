@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<!-- c:out ; c:forEach etc. -->
+<!-- c:out ; c:forEach etc. -->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- Formatting (dates) -->
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
@@ -34,8 +34,10 @@
 				</a>
 				<div class="col-4 row align-items-center">
 					<p class="col text-white m-2">${ user_fname }</p>
-					<button class="col btn btn-info btn-sm round m-2" onclick="window.location.href='/dashboard';">Home</button>
-					<button class="col btn btn-danger btn-sm round" onclick="window.location.href='/logout';">Log-Out</button>
+					<button class="col btn btn-info btn-sm round m-2"
+						onclick="window.location.href='/dashboard';">Home</button>
+					<button class="col btn btn-danger btn-sm round"
+						onclick="window.location.href='/logout';">Log-Out</button>
 				</div>
 			</div>
 		</div>
@@ -45,7 +47,33 @@
 	<main role="main">
 		<div class="container mt-4">
 			<div class="row">
-				<h1>Welcome to Dashboard ${ user_fname } ${ user_lname }</h1>
+				<h1>Enter a new project</h1>
+				<form:form action="/project/new" method="post"
+					modelAttribute="newProject">
+					<!-- **** Set Leader as User **** -->
+					<form:hidden path="leader" value="${user_id}" />
+					<p class="form-group">
+						<form:label path="title">Project Title:</form:label>
+						<strong> <form:errors path="title"
+								class="alert text-danger" />
+						</strong>
+						<form:input class="form-control mb-3" path="title" />
+					</p>
+					<p class="form-group">
+						<form:label path="description">Description</form:label>
+						<form:textarea class="form-control mb-3" path="description" />
+						<form:errors path="description" class="alert alert-danger mb-3" />
+					</p>
+					<p>
+						<form:label path="dueDate">Due Date:</form:label>
+						<strong> <form:errors path="dueDate"
+								class="alert text-danger" />
+						</strong>
+						<form:input class="form-control mb-3" type="date" path="dueDate" />
+					</p>
+					<input class="btn btn-success mb-3" type="submit"
+						value="Submit New Project" />
+				</form:form>
 			</div>
 		</div>
 	</main>

@@ -43,7 +43,6 @@ public class Project {
 	private String description;
 	
 	@NotNull
-	@NotEmpty(message="Due Date must not be empty")
 	@Future(message="Due Date must be in the future")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dueDate;

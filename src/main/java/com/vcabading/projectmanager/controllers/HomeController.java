@@ -45,11 +45,10 @@ public class HomeController {
     //	**** Display DASHBOARD *************************************
     @GetMapping("/dashboard")
     public String dashboard(Model model, HttpSession session) {
+    	//	---- Check if user is not logged in --------------------
     	if (session.isNew() || session.getAttribute("user_id") == null) {
     		return "redirect:/";
     	}
-    	User loggedInUser = this.userServ.retrieveUser((Long) session.getAttribute("user_id"));
-    	model.addAttribute("loggedInUser", loggedInUser);
     	return "dashboard.jsp";
     }
     
@@ -66,6 +65,8 @@ public class HomeController {
             return "index.jsp";
         }
         session.setAttribute("user_id", newUser.getId());
+        session.setAttribute("user_fname", newUser.getFirstName());
+        session.setAttribute("user_lname", newUser.getLastName());
         return "redirect:/dashboard";
     }
     
@@ -80,6 +81,8 @@ public class HomeController {
             return "index.jsp";
         }
         session.setAttribute("user_id", user.getId());
+        session.setAttribute("user_fname", user.getFirstName());
+        session.setAttribute("user_lname", user.getLastName());
         return "redirect:/dashboard";
     }
     
